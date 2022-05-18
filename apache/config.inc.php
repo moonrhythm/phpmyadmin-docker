@@ -80,13 +80,7 @@ for ($i = 1; isset($hosts[$i - 1]); $i++) {
     if (isset($ports[$i - 1])) {
         $cfg['Servers'][$i]['port'] = $ports[$i - 1];
     }
-    if (isset($_ENV['PMA_USER'])) {
-        $cfg['Servers'][$i]['auth_type'] = 'config';
-        $cfg['Servers'][$i]['user'] = $_ENV['PMA_USER'];
-        $cfg['Servers'][$i]['password'] = isset($_ENV['PMA_PASSWORD']) ? $_ENV['PMA_PASSWORD'] : '';
-    } else {
-        $cfg['Servers'][$i]['auth_type'] = 'cookie';
-    }
+    $cfg['Servers'][$i]['auth_type'] = 'cookie';
     if (isset($_ENV['PMA_PMADB'])) {
       $cfg['Servers'][$i]['pmadb'] = $_ENV['PMA_PMADB'];
       $cfg['Servers'][$i]['relation'] = 'pma__relation';
